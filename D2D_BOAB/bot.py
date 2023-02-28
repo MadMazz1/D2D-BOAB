@@ -41,7 +41,7 @@ async def send_message(message, user_message, is_private):
 # Runs the Discord bot from 'main.py'
 def run_discord_bot():
     client = commands.Bot(command_prefix='!', intents=intents)
-    TOKEN = 'MTA0NTkyNDI0ODMyNzMwNzM2NQ.GCuPOG.X9qHa8ShGwdmlAkxU8p7edyJ-uub9O44sii6Ps'
+    TOKEN = 'INSERT DISCORD API KEY HERE'
 
     # Queries OpenAI for a response.
     @client.command()
