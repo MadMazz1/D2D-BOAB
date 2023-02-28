@@ -56,10 +56,17 @@ def get_response(message: str) -> str:
     if p_message == f'{ck}rose':
         return str('--<-<-<@')
 
-
     if p_message == f'{ck}quote':
         quote = function.get_quote()
         return quote
+
+    if p_message == f'{ck}fotd':
+        fotd = function.fact_otd()
+        return fotd
+
+    if p_message == f'{ck}rfotd':
+        rfotd = function.useless_fact()
+        return rfotd
 
     if p_message == f'{ck}lottery':
         lottery = function.lottery()
@@ -99,6 +106,8 @@ def get_response(message: str) -> str:
         !slap - Bitch slaps another user. - Example: !slap @paulie
         !clear - Deletes messages. - Example: !clear 10 (Clears last 10 messages in the channel)
         !userinfo - Provides info about @USER. Example: !userinfo @Name#1234
+        !fotd - Today's random useless fact.
+        !rfotd - Generates a random useless fact.
         !lottery - Chooses this weeks winning Lotto Numbers! (Hopefully)
         !insult - Insult @USER. Example: !insult @NAME#1234 
         !roll - Rolls a dye (Random Number: 1-6)

@@ -69,3 +69,23 @@ def rand_insult():
     insult = resp_list[0]['insult']
 
     return insult
+
+
+def fact_otd():
+    fact_list = []
+    get_fact = requests.get("https://uselessfacts.jsph.pl/api/v2/facts/today")
+    response = json.loads(get_fact.text)
+    fact_list.append(response)
+    fotd = fact_list[0]['text']
+
+    return fotd
+
+
+def useless_fact():
+    useless_list = []
+    get_fact = requests.get("https://uselessfacts.jsph.pl/api/v2/facts/random")
+    response = json.loads(get_fact.text)
+    useless_list.append(response)
+    rand_fact = useless_list[0]['text']
+
+    return rand_fact
