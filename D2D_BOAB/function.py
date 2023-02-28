@@ -14,7 +14,8 @@ def get_quote():
     response = requests.get("https://zenquotes.io/api/random")
     json_data = json.loads(response.text)
     quote = json_data[0]['q'] + " -" + json_data[0]['a']
-    return (quote)
+
+    return quote
 
 
 def lottery():
@@ -24,12 +25,14 @@ def lottery():
     fourth = random.randint(1, 69)
     fifth = random.randint(1, 69)
     ball = random.randint(1, 26)
+
     return f"Numbers: {first}, {second}, {third}, {fourth}, {fifth} | Powerball: {ball}"
 
 
 def coin_flip():
     coin = ['Heads', 'Tails']
     choice = random.choice(coin)
+
     return choice
 
 
@@ -54,4 +57,15 @@ def time():
         day = 'Tuesday'
     if day == 0:
         day = 'Monday'
+
     return f"Today is {day}, {the_date} at {the_time}."
+
+
+def rand_insult():
+    resp_list = []
+    get = requests.get("https://evilinsult.com/generate_insult.php?lang=en&type=json")
+    response = json.loads(get.text)
+    resp_list.append(response)
+    insult = resp_list[0]['insult']
+
+    return insult

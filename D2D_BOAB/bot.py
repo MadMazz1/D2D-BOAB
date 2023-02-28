@@ -1,5 +1,6 @@
 import discord
 import responses
+import function
 from discord.ext import commands
 import openai
 
@@ -40,7 +41,7 @@ async def send_message(message, user_message, is_private):
 # Runs the Discord bot from 'main.py'
 def run_discord_bot():
     client = commands.Bot(command_prefix='!', intents=intents)
-    TOKEN = 'INSERT TOKEN HERE'
+    TOKEN = 'MTA0NTkyNDI0ODMyNzMwNzM2NQ.GCuPOG.X9qHa8ShGwdmlAkxU8p7edyJ-uub9O44sii6Ps'
 
     # Queries OpenAI for a response.
     @client.command()
@@ -54,6 +55,12 @@ def run_discord_bot():
         gif_url = "https://tenor.com/view/slap-slapping-charlie-murphy-chappelle-chappelles-gif-20069417"
         await ctx.send(f"{ctx.author.mention} just slapped the fuck out of {user.mention}!")
         await ctx.send(gif_url)
+
+    # Insult @user command
+    @client.command()
+    async def insult(ctx, user: discord.Member):
+        insult1 = function.rand_insult()
+        await ctx.send(f"{user.mention}, {insult1}")
 
     # Deletes messages in a channel.
     @client.command()
@@ -86,14 +93,19 @@ def run_discord_bot():
     async def userinfo(ctx, user: discord.Member):
         join_date = user.joined_at.strftime("%m/%d/%Y, %H:%M:%S")
         roles = [role.name for role in user.roles if role.name != '@everyone']
+
         if user.name == 'Kmazz':
             roles.append('The Man')
+
         if user.name == 'paulie':
             roles.append('Likes Men')
+
         if user.name == 'Brad':
             roles.append('Wants to re-enact Brokeback Mountain with Paulie')
+
         if user.name == 'Jiko':
             roles.append('Nice Pee-Pee')
+
         status = user.status
         activity = user.activity.name if user.activity else 'None'
         created_at = user.created_at.strftime("%m/%d/%Y, %H:%M:%S")

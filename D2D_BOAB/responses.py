@@ -4,7 +4,7 @@ from D2D_BOAB import function
 import random
 
 client = discord.Client(intents=discord.Intents.all())
-ck = '!' # Command Key
+ck = '!'  # Command Key
 
 
 def get_response(message: str) -> str:
@@ -100,6 +100,7 @@ def get_response(message: str) -> str:
         !clear - Deletes messages. - Example: !clear 10 (Clears last 10 messages in the channel)
         !userinfo - Provides info about @USER. Example: !userinfo @Name#1234
         !lottery - Chooses this weeks winning Lotto Numbers! (Hopefully)
+        !insult - Insult @USER. Example: !insult @NAME#1234 
         !roll - Rolls a dye (Random Number: 1-6)
         !coinflip - Flips a coin. (Heads/Tails)
         !yt - Query YouTube videos.
